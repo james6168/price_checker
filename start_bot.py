@@ -40,19 +40,34 @@ def get_brand_data_and_return_info(call):
     stop_button = types.InlineKeyboardButton("Стоп", callback_data="stop_render")
     markup.add(continue_button, stop_button)
     if call.data == "brand_xiaomi":
-        xiaomi_smartphones = get_smartphones_info_telefon_kg(get_smartphones_list_html(shop_url, HEADERS))
+        xiaomi_smartphones = get_smartphones_info_telefon_kg(get_smartphones_list_html("https://telefon.kg/smartphone/xiaomi_smartphones", HEADERS))
         for each_smartphone in xiaomi_smartphones:
             bot.send_message(call.message.chat.id, f"{each_smartphone}")
     elif call.data == "brand_samsung":
-        bot.send_message(call.message.chat.id, "Смартфоны Samsung")
+        realme_smartphones = get_smartphones_info_telefon_kg(
+            get_smartphones_list_html("https://telefon.kg/smartphone/samsung_smartphones", HEADERS))
+        for each_smartphone in realme_smartphones:
+            bot.send_message(call.message.chat.id, f"{each_smartphone}")
     elif call.data == "brand_realme":
-        bot.send_message(call.message.chat.id, "Смартфоны Realme")
+        realme_smartphones = get_smartphones_info_telefon_kg(
+            get_smartphones_list_html("https://telefon.kg/smartphone/smartfony-oppo", HEADERS))
+        for each_smartphone in realme_smartphones:
+            bot.send_message(call.message.chat.id, f"{each_smartphone}")
     elif call.data == "brand_google":
-        bot.send_message(call.message.chat.id, "Смартфоны Google")
+        google_smartphones = get_smartphones_info_telefon_kg(
+            get_smartphones_list_html("https://telefon.kg/smartphone/google-pixel", HEADERS))
+        for each_smartphone in google_smartphones:
+            bot.send_message(call.message.chat.id, f"{each_smartphone}")
     elif call.data == "brand_apple":
-        bot.send_message(call.message.chat.id, "Смартфоны Apple")
+        apple_smartphones = get_smartphones_info_telefon_kg(
+            get_smartphones_list_html("https://telefon.kg/smartphone/apple_smartphones", HEADERS))
+        for each_smartphone in apple_smartphones:
+            bot.send_message(call.message.chat.id, f"{each_smartphone}")
     elif call.data == "brand_oneplus":
-        bot.send_message(call.message.chat.id, "Смартфоны OnePlus")
+        oneplus_smartphones = get_smartphones_info_telefon_kg(
+            get_smartphones_list_html("https://telefon.kg/smartphone/oneplus_smartphones", HEADERS))
+        for each_smartphone in oneplus_smartphones:
+            bot.send_message(call.message.chat.id, f"{each_smartphone}")
 
 
 bot.polling()
