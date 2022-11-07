@@ -1,7 +1,6 @@
 
 import telebot
 from telebot.types import ReplyKeyboardRemove
-
 from shop_parser import *
 from decouple import config
 from telebot import types
@@ -12,6 +11,7 @@ list_current_smartphones = []
 continue_button_xiaomi = types.KeyboardButton("Далее")
 stop_button_xiaomi = types.KeyboardButton("Стоп")
 render_counter = 0
+
 
 @bot.message_handler(commands=["start"])
 def greet_user_and_show_brands(message):
@@ -102,8 +102,6 @@ def get_number_of_render_and_continue_render_or_break(message):
         render_counter = 0
         list_current_smartphones.clear()
         bot.send_message(message.chat.id, "Показ смартфонов приостановлен", reply_markup=ReplyKeyboardRemove())
-
-
 
 
 bot.polling()
