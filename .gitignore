@@ -3,3 +3,4 @@ env/
 .env
 draft.txt
 __pycache__/
+draft.py
